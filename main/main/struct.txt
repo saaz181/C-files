@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <math.h>
+
+struct date {
+    int day, month, year;
+};
+
+struct student{
+    long int number;
+    char name[50];
+    float avg;
+    struct date dat;
+    //struct courses course[10];
+};
+
+struct complex{
+
+    float real;
+    float im;
+};
+
+void print(struct complex);
+struct complex add(struct complex, struct complex);
+struct complex multiply(struct complex, struct complex);
+float absComplex(struct complex); //absolute value of complex numbers
+struct complex divComplex(struct complex, struct complex); // division of complex numbers
+struct complex abstraction(struct complex x, struct complex y);
+
+int main(){
+    struct complex w = {2.232, -4.14324}, r={3.234324, 5.2342};
+    
+    print(add(w, r));
+    print(abstraction(w, r));
+    print(multiply(w, r));
+    print(divComplex(w, r));
+}
+
+
+void print(struct complex h){
+    printf("\n(%f + %fi)\n", h.real, h.im);
+}
+
+float absComplex(struct complex u){
+    return sqrt(pow(u.real, 2) + pow(u.im, 2));
+}
+
+
+
+// addition of complex numbers
+struct complex add(struct complex x, struct complex y){
+    struct complex z;
+    z.real = x.real + y.real;
+    z.im = x.im + y.im;
+    return z;
+};
+
+struct complex abstraction(struct complex x, struct complex y){
+    struct complex z;
+    z.real = x.real - y.real;
+    z.im = x.im - y.im;
+    return z;
+};
+
+
+
+
+// mulitiplication of complex number
+struct complex multiply(struct complex x, struct complex y){
+    struct complex v;
+    v.real = x.real * y.real - x.im * y.im;
+    v.im = x.real*y.im + x.im*y.real;
+    return v;
+};
+
+
+struct complex divComplex(struct complex x, struct complex y){
+    struct complex z, v, w;
+    z.real = y.real / (pow(absComplex(y), 2));
+    z.im = -y.im / (pow(absComplex(y), 2));
+    v.real = x.real * z.real - x.im * z.im;
+    v.im = x.real * z.im + x.im * z.real;
+    return v;
+};

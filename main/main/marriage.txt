@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+
+void Introduction(){
+    // Introduction to program
+    printf("\n            ########## Who will Marry Who? ##########\n");
+    printf("-----------------------------------------------------------------------\n");
+    printf("| ***** Please Enter Each Prefrence of Men or Women like below:  ***** |\n");
+    printf("|\t\t$$$$  Woman: m1 m2 m3  $$$$\t\t\t       |\n|\t\t$$$$    Man: w1 w2 w3  $$$$\t\t\t    \
+   |\n");
+    printf("-----------------------------------------------------------------------\n");
+}
+
+int main(){
+    
+    // Introduction    
+    Introduction();
+
+    char genders[6][6] = {"Men1", "Men2", "Men3", "Woman1", "Woman2", "Woman3"};
+    
+    //struct Person one;
+        
+        
+
+}    
